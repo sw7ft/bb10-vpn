@@ -33,3 +33,13 @@ sudo iptables -I DOCKER -p udp --dport 4500 -j ACCEPT
 sudo iptables -t nat -I POSTROUTING -s 172.17.0.0/16 -d 10.0.0.0/24 -j SNAT --to-source 54.39.41.29
 sudo iptables -A DOCKER-USER -i ens34 -j FILTERS
 ```
+
+
+### Docker HUB Link
+
+```
+docker pull sw7ft/bb10-vpn
+
+```
+
+[docker hub link](https://hub.docker.com/r/sw7ft/bb10-vpn)
