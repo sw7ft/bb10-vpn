@@ -22,3 +22,14 @@ conn BB10
 
 ```
 then update ipsec.secrets and add your own users, there are two example ones in there 
+
+
+## Possible Host firewall rules 
+
+edit the ethernet and ip details for your setup
+```
+sudo iptables -I DOCKER -p tcp --dport 500 -j ACCEPT
+sudo iptables -I DOCKER -p udp --dport 4500 -j ACCEPT
+sudo iptables -t nat -I POSTROUTING -s 172.17.0.0/16 -d 10.0.0.0/24 -j SNAT --to-source 54.39.41.29
+sudo iptables -A DOCKER-USER -i ens34 -j FILTERS
+```
